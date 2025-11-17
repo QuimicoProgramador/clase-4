@@ -1,28 +1,19 @@
-def filtrar_proyectos_webhook(proyectos, cadena_objetivo):
-        proyectos_webhook: [
-        {
-            "nombre": "Proyecto A",
-            "estado": "activo",
-            "cadena": "Ethereum"
-        },
-        {
-            "nombre": "Proyecto B",
-            "estado": "inactivo",
-            "cadena": "Polygon"
-        },
-        {
-            "nombre": "Proyecto C",
-            "estado": "activo",
-            "cadena": "Polygon"
-        }
-] 
-  
-     
-    proyectos_filtrados = [
-        proyecto for proyecto in proyectos
-        if proyecto["estado"] == "activo" and proyecto["cadena"] == cadena_objetivo
-    ]
-return proyectos_filtrados;
+from automatizador_utils import filtrar_proyectos_activos
 
-                                                                                                                                                                                                                                                                                                         esto es un programa hackeado.
+
+if __name__ == '__main__':
+    # Datos de prueba (podrían venir de un webhook)
+    proyectos_webhook = [
+        {"nombre": "A", "cadena": "Polygon", "estado": "activo"},
+        {"nombre": "B", "cadena": "Algorand", "estado": "inactivo"},
+        {"nombre": "C", "cadena": "Polygon", "estado": "activo"},
+    ]
+
+    # Llamamos a la función importada desde el módulo
+    resultados = filtrar_proyectos_activos(proyectos_webhook, "Polygon")
+
+    # Usamos el resultado
+    print(f"Proyectos Activos en Polygon: {len(resultados)}")
+    for proyecto in resultados:
+        print(f"-> {proyecto['nombre']}")
 
